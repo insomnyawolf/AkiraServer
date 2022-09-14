@@ -52,7 +52,7 @@ namespace WebServer
             ThreadPool.QueueUserWorkItem((o) =>
             {
                 Console.WriteLine("Akira running...");
-                //try
+                try
                 {
                     while (_listener.IsListening)
                     {
@@ -73,7 +73,7 @@ namespace WebServer
                                 res = null;
 
                             }
-                            //catch { } // suppress any exceptions
+                            catch { } // suppress any exceptions
                             finally
                             {
                                 // always close the stream
@@ -82,8 +82,7 @@ namespace WebServer
                         }, _listener.GetContext());
                     }
                 }
-                //catch { } // suppress any exceptions
-                //finally { }
+                catch { } // suppress any exceptions
             });
         }
 
